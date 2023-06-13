@@ -10,7 +10,6 @@ export const LoginPage = () => {
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  console.log(errors);
   return (
     <LayoutAuth title="Login">
       <form onSubmit={handleSubmit(onSubmit)}>

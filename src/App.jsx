@@ -5,8 +5,8 @@ import { SignInPage } from "./auth/pages/SignInPage";
 function App() {
   return (
     <>
-      <LoginPage />
-      {/* <SignInPage /> */}
+      {/* <LoginPage /> */}
+      <SignInPage />
     </>
   );
 }
