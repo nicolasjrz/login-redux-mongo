@@ -1,12 +1,12 @@
 // import "./App.css";
 import { LoginPage } from "./auth/pages/LoginPage";
-import { SignInPage } from "./auth/pages/SignInPage";
+import { SignUpPage } from "./auth/pages/SignUpPage";
 
 function App() {
   return (
     <>
       {/* <LoginPage /> */}
-      <SignInPage />
+      <SignUpPage />
     </>
   );
 }

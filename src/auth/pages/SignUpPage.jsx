@@ -2,7 +2,7 @@ import { Button, Grid, Link, TextField } from "@mui/material";
 import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
 
-export const SignInPage = () => {
+export const SignUpPage = () => {
   const {
     register,
     formState: { errors },
@@ -13,7 +13,7 @@ export const SignInPage = () => {
     console.log(data);
   };
   return (
-    <LayoutAuth title="SignIn">
+    <LayoutAuth title="SignUp">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
@@ -71,7 +71,7 @@ export const SignInPage = () => {
           </Grid>
           <Grid item xs={12} sx={{ mt: 3 }}>
             <Button variant="contained" fullWidth type="submit">
-              SignIn
+              SignUp
             </Button>
           </Grid>
 
