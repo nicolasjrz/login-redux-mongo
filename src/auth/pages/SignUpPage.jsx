@@ -1,7 +1,7 @@
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
-
+import { Link as RouterLink } from "react-router-dom";
 export const SignUpPage = () => {
   const {
     register,
@@ -81,7 +81,9 @@ export const SignUpPage = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Link mt={1}>ya tienes cuenta?</Link>
+            <Link component={RouterLink} to="/auth/login" mt={1}>
+              ya tienes cuenta?
+            </Link>
           </Grid>
         </Grid>
       </form>

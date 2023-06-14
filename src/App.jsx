@@ -1,12 +1,11 @@
 // import "./App.css";
-import { LoginPage } from "./auth/pages/LoginPage";
-import { SignUpPage } from "./auth/pages/SignUpPage";
+
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
   return (
     <>
-      {/* <LoginPage /> */}
-      <SignUpPage />
+      <AppRouter />
     </>
   );
 }

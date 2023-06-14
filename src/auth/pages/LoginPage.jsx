@@ -1,3 +1,5 @@
+import { Link as RouterLink } from "react-router-dom";
+
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
@@ -56,8 +58,10 @@ export const LoginPage = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Link mt={1}>Forgot password?</Link>
-            <Link mt={1}>Dont have an account? Sign Up</Link>
+            {/* <Link mt={1}>Forgot password?</Link> */}
+            <Link component={RouterLink} to="/auth/signup" mt={1}>
+              Dont have an account? Sign Up
+            </Link>
           </Grid>
         </Grid>
       </form>
