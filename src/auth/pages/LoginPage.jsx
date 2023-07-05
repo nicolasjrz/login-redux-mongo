@@ -5,8 +5,10 @@ import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
 import { useTheme } from "@emotion/react";
 import { useAuthStore } from "../../hooks/useAuthStore.js";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 export const LoginPage = () => {
-  const { startLogin } = useAuthStore();
+  const { startLogin, errorMessage } = useAuthStore();
 
   const {
     register,
@@ -15,6 +17,13 @@ export const LoginPage = () => {
   } = useForm();
   const onSubmit = (data) => startLogin(data);
   const theme = useTheme();
+
+  useEffect(() => {
+    if (errorMessage !== undefined) {
+      Swal.fire("Error en la autentificacion", errorMessage, "error");
+    }
+  }, [errorMessage]);
+
   return (
     <LayoutAuth title="Login">
       <form onSubmit={handleSubmit(onSubmit)}>
