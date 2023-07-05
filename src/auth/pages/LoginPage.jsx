@@ -4,14 +4,16 @@ import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
 import { useTheme } from "@emotion/react";
-
+import { useAuthStore } from "../../hooks/useAuthStore.js";
 export const LoginPage = () => {
+  const { startLogin } = useAuthStore();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => startLogin(data);
   const theme = useTheme();
   return (
     <LayoutAuth title="Login">
