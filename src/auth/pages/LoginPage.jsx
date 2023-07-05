@@ -1,8 +1,9 @@
 import { Link as RouterLink } from "react-router-dom";
 
-import { Button, Grid, Link, TextField } from "@mui/material";
+import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
+import { useTheme } from "@emotion/react";
 
 export const LoginPage = () => {
   const {
@@ -11,7 +12,7 @@ export const LoginPage = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
-
+  const theme = useTheme();
   return (
     <LayoutAuth title="Login">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,8 +32,17 @@ export const LoginPage = () => {
               })}
               aria-invalid={errors.email ? "true" : "false"}
             />
-            {errors.email && <p role="alert">{errors.email?.message}</p>}
+            {errors.email && (
+              <Typography
+                mt={1}
+                color={theme.palette.text.secondary}
+                sx={{ textAlign: "end" }}
+              >
+                {errors.email?.message}
+              </Typography>
+            )}
           </Grid>
+
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
               fullWidth
@@ -44,14 +54,21 @@ export const LoginPage = () => {
               })}
               aria-invalid={errors.password ? "true" : "false"}
             />
-            {errors.password && <span>password required</span>}
+            {errors.password && (
+              <Typography
+                mt={1}
+                color={theme.palette.text.secondary}
+                sx={{ textAlign: "end" }}
+              >
+                {errors.password?.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} sx={{ mt: 3 }}>
             <Button variant="contained" fullWidth type="submit">
               Login
             </Button>
           </Grid>
-
           <Grid
             container
             mt={2}

@@ -3,10 +3,15 @@ import { AuthRoutes } from "../auth/routes/AuthRoutes";
 import { WebRoutes } from "../web/routes/WebRoutes";
 
 export const AppRouter = () => {
+  const authStatus = "not-authenticated";
+
   return (
     <Routes>
-      <Route path="/*" element={<WebRoutes />} />
-      <Route path="/auth/*" element={<AuthRoutes />} />
+      {authStatus === "not-authenticated" ? (
+        <Route path="/auth/*" element={<AuthRoutes />} />
+      ) : (
+        <Route path="/*" element={<WebRoutes />} />
+      )}
 
       <Route path="/*" element={<Navigate to={"/auth/login"} />} />
     </Routes>
