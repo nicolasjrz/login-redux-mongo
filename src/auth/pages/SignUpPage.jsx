@@ -1,8 +1,11 @@
-import { Button, Grid, Link, TextField } from "@mui/material";
+import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
 import { Link as RouterLink } from "react-router-dom";
+import { useTheme } from "@emotion/react";
 export const SignUpPage = () => {
+  const theme = useTheme();
+
   const {
     register,
     formState: { errors },
@@ -32,7 +35,15 @@ export const SignUpPage = () => {
               })}
               aria-invalid={errors.fullname ? "true" : "false"}
             />
-            {errors.fullname && <p role="alert">{errors.fullname?.message}</p>}
+            {errors.fullname && (
+              <Typography
+                mt={1}
+                color={theme.palette.text.secondary}
+                sx={{ textAlign: "end" }}
+              >
+                {errors.fullname?.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
@@ -50,7 +61,15 @@ export const SignUpPage = () => {
               })}
               aria-invalid={errors.email ? "true" : "false"}
             />
-            {errors.email && <p role="alert">{errors.email?.message}</p>}
+            {errors.email && (
+              <Typography
+                mt={1}
+                color={theme.palette.text.secondary}
+                sx={{ textAlign: "end" }}
+              >
+                {errors.email?.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
@@ -67,7 +86,15 @@ export const SignUpPage = () => {
                 },
               })}
             />
-            {errors.password && <p role="alert">{errors.password?.message}</p>}
+            {errors.password && (
+              <Typography
+                mt={1}
+                color={theme.palette.text.secondary}
+                sx={{ textAlign: "end" }}
+              >
+                {errors.password?.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} sx={{ mt: 3 }}>
             <Button variant="contained" fullWidth type="submit">
@@ -82,7 +109,7 @@ export const SignUpPage = () => {
             alignItems={"center"}
           >
             <Link component={RouterLink} to="/auth/login" mt={1}>
-              ya tienes cuenta?
+              Already have an account?
             </Link>
           </Grid>
         </Grid>
