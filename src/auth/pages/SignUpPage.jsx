@@ -3,8 +3,13 @@ import { LayoutAuth } from "../layout/LayoutAuth";
 import { useForm } from "react-hook-form";
 import { Link as RouterLink } from "react-router-dom";
 import { useTheme } from "@emotion/react";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { useAuthStore } from "../../hooks/useAuthStore";
 export const SignUpPage = () => {
   const theme = useTheme();
+
+  const { startRegister, errorMessage } = useAuthStore();
 
   const {
     register,
@@ -13,8 +18,15 @@ export const SignUpPage = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    startRegister(data);
   };
+
+  useEffect(() => {
+    if (errorMessage !== undefined) {
+      Swal.fire("Error al crear la cuenta", errorMessage, "error");
+    }
+  }, [errorMessage]);
+
   return (
     <LayoutAuth title="SignUp">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -22,26 +34,26 @@ export const SignUpPage = () => {
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
               fullWidth
-              id="fullname"
+              id="name"
               label="Fullname"
               variant="standard"
               type="text"
-              {...register("fullname", {
+              {...register("name", {
                 required: "El nombre es requerido",
                 minLength: {
                   value: 5,
                   message: "El nombre debe tener al menos 5 caracteres",
                 },
               })}
-              aria-invalid={errors.fullname ? "true" : "false"}
+              aria-invalid={errors.name ? "true" : "false"}
             />
-            {errors.fullname && (
+            {errors.name && (
               <Typography
                 mt={1}
                 color={theme.palette.text.secondary}
                 sx={{ textAlign: "end" }}
               >
-                {errors.fullname?.message}
+                {errors.name?.message}
               </Typography>
             )}
           </Grid>
