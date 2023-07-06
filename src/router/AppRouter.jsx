@@ -1,20 +1,33 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { AuthRoutes } from "../auth/routes/AuthRoutes";
-import { WebRoutes } from "../web/routes/WebRoutes";
-import { useSelector } from "react-redux";
+import { useAuthStore } from "../hooks/useAuthStore";
+import { useEffect } from "react";
+import { LoginPage } from "../auth/pages/LoginPage";
+import { HomePage } from "../web/pages/HomePage";
 
 export const AppRouter = () => {
-  const { status } = useSelector((state) => state.auth);
+  const { status, checkAuthToken } = useAuthStore();
+
+  useEffect(() => {
+    checkAuthToken();
+  }, []);
+
+  if (status === "checking") {
+    return <h3>cargando....</h3>;
+  }
 
   return (
     <Routes>
-      {status === "checking" ? (
-        <Route path="/auth/*" element={<AuthRoutes />} />
+      {status === "not-authenticated" ? (
+        <>
+          <Route path="/auth/*" element={<LoginPage />} />
+          <Route path="/*" element={<Navigate to="/auth/login" />} />
+        </>
       ) : (
-        <Route path="/*" element={<WebRoutes />} />
+        <>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/*" element={<Navigate to="/" />} />
+        </>
       )}
-
-      <Route path="/*" element={<Navigate to={"/auth/login"} />} />
     </Routes>
   );
 };
