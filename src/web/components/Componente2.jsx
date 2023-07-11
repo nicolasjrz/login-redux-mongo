@@ -6,9 +6,9 @@ import { onTurno } from "../../store/auth/turnoSlice";
 import { useEffect } from "react";
 
 const horarios = [
-  { id: 1, label: "12:00 - 13:00" },
-  { id: 2, label: "13:00 - 14:00" },
-  { id: 3, label: "14:00 - 15:00" },
+  { id: 1, label: "12:00 - 13:00", ocupado: true },
+  { id: 2, label: "13:00 - 14:00", ocupado: false },
+  { id: 3, label: "14:00 - 15:00", ocupado: false },
   // Agrega más horarios según tus necesidades
 ];
 
@@ -36,6 +36,7 @@ export const Componente2 = ({ turno, setNext }) => {
             value={horario.id}
             control={<Radio />}
             label={horario.label}
+            disabled={horario.ocupado}
           />
         ))}
       </RadioGroup>
