@@ -14,16 +14,16 @@ import { Componente1 } from "../components/Componente1";
 import { Componente2 } from "../components/Componente2";
 import { Componente3 } from "../components/Componente3";
 
-const steps = [
-  { label: "Paso 1", content: <Componente1 /> },
-  { label: "Paso 2", content: <Componente2 /> },
-  { label: "Paso 3", content: <Componente3 /> },
-];
-
 export const HomePage = () => {
-  const { fecha, turno, usuario, servicio } = useTurnoStore();
+  const { fecha, turno, servicio } = useTurnoStore();
 
-  console.log({ fecha, turno, usuario, servicio });
+  const steps = [
+    { label: "Paso 1", content: <Componente1 fecha={fecha} /> },
+    { label: "Paso 2", content: <Componente2 turno={turno} /> },
+    { label: "Paso 3", content: <Componente3 servicio={servicio} /> },
+  ];
+
+  console.log({ fecha, turno, servicio });
 
   const { activeStep, handleNext, handleBack, handleReset } = useStepper();
 

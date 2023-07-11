@@ -3,11 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 export const turnoSlice = createSlice({
   name: "turno",
   initialState: {
-    ///fecha
-    //turno
-    //usuario
-    //servicio
-
     fecha: "",
     turno: 0,
     usuario: {},
