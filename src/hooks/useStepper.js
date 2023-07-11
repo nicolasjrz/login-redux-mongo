@@ -22,7 +22,7 @@ export const useStepper = () => {
     //   newSkipped.delete(activeStep);
     //   console.log("estoy en el if");
     // }
-    console.log("pase  el if");
+
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     // setSkipped(newSkipped);
     setNext(true);
