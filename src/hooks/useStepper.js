@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const useStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+
+  const [next, setNext] = useState(true);
 
   // const isStepOptional = (step) => {
   //   return step === 2;
@@ -13,14 +15,17 @@ export const useStepper = () => {
   };
 
   const handleNext = () => {
+    //
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
       newSkipped.delete(activeStep);
+      console.log("estoy en el if");
     }
-
+    console.log("pase  el if");
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
+    setNext(true);
   };
 
   const handleBack = () => {
@@ -47,6 +52,8 @@ export const useStepper = () => {
   };
 
   return {
+    next,
+    setNext,
     activeStep,
     isStepSkipped,
     handleNext,

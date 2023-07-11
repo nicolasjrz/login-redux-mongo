@@ -6,6 +6,7 @@ export const StepperButtons = ({
   activeStep,
   handleBack,
   handleNext,
+  next,
 }) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
@@ -18,7 +19,7 @@ export const StepperButtons = ({
         Back
       </Button>
       <Box sx={{ flex: "1 1 auto" }} />
-      <Button onClick={handleNext}>
+      <Button onClick={handleNext} disabled={next}>
         {activeStep === steps.length - 1 ? "Finish" : "Next"}
       </Button>
     </Box>

@@ -16,16 +16,25 @@ import { Componente3 } from "../components/Componente3";
 
 export const HomePage = () => {
   const { fecha, turno, servicio } = useTurnoStore();
+  const { next, setNext, activeStep, handleNext, handleBack, handleReset } =
+    useStepper();
 
   const steps = [
-    { label: "Paso 1", content: <Componente1 fecha={fecha} /> },
-    { label: "Paso 2", content: <Componente2 turno={turno} /> },
-    { label: "Paso 3", content: <Componente3 servicio={servicio} /> },
+    {
+      label: "Paso 1",
+      content: <Componente1 fecha={fecha} setNext={setNext} />,
+    },
+    {
+      label: "Paso 2",
+      content: <Componente2 turno={turno} setNext={setNext} />,
+    },
+    {
+      label: "Paso 3",
+      content: <Componente3 servicio={servicio} setNext={setNext} />,
+    },
   ];
 
   console.log({ fecha, turno, servicio });
-
-  const { activeStep, handleNext, handleBack, handleReset } = useStepper();
 
   return (
     <Stack
@@ -54,6 +63,7 @@ export const HomePage = () => {
               activeStep={activeStep}
               handleBack={handleBack}
               handleNext={handleNext}
+              next={next}
             />
           </>
         )}
