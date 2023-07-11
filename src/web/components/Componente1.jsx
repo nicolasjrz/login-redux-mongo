@@ -1,3 +1,10 @@
+import { Typography } from "@mui/material";
+import { StepperLayout } from "../layout/StepperLayout";
+
 export const Componente1 = () => {
-  return <div>Componente1</div>;
+  return (
+    <StepperLayout>
+      <Typography>Componente1</Typography>
+    </StepperLayout>
+  );
 };
