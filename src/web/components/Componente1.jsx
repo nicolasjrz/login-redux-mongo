@@ -15,7 +15,7 @@ export const Componente1 = ({ fecha }) => {
 
   return (
     <StepperLayout>
-      <Typography>Componente1 : {fecha}</Typography>
+      <Typography>Fecha : {fecha}</Typography>
       <TextField type="date" onChange={handleFechaChange} />
     </StepperLayout>
   );
