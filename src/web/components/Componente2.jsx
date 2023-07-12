@@ -16,13 +16,13 @@ export const Componente2 = ({ turno, setNext }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    turno === "" ? setNext(true) : setNext(false);
+    setNext(!turno); // Si el turno está vacío, se deshabilita el botón "Next"
   }, [turno, setNext]);
 
   const handleHorarioChange = (event) => {
     const nuevoTurno = event.target.value;
     dispatch(onTurno(nuevoTurno));
-    setNext(false);
+    setNext(false); // Se activa el botón "Next" después de seleccionar un turno
   };
 
   return (
