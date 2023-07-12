@@ -14,17 +14,16 @@ const papers = [
 
 export const Componente3 = ({ servicio, setNext }) => {
   const dispatch = useDispatch();
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
-    servicio === "" ? setNext(true) : setNext(false);
+    setNext(!servicio); // Si no se ha seleccionado un servicio, se deshabilita el botón "Next"
   }, [servicio, setNext]);
 
   const handlePaperClick = (paperId) => {
     dispatch(onService(paperId));
-    setNext(false);
+    setNext(false); // Se activa el botón "Next" después de seleccionar un servicio
   };
-
-  const isMobile = useMediaQuery("(max-width: 600px)");
 
   return (
     <StepperLayout>
