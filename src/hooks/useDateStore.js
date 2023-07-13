@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  onChangeDaySelected,
-  setCurrentDate,
-  setMesSelecionado,
-} from "../store/auth/dateSlice";
+import { onChangeDaySelected, setCurrentDate } from "../store/auth/dateSlice";
+import { onDate } from "../store/auth/turnoSlice";
+import { subDays } from "date-fns";
 
 export const useDateStore = () => {
   const { currentDate, initialDate, daySelected } = useSelector(
@@ -12,29 +10,15 @@ export const useDateStore = () => {
 
   const dispatch = useDispatch();
 
-  // function formatDate(fechaString) {
-  //   const [day, month, year] = fechaString.split("/").map(Number);
-  //   const diaSeleccionado = new Date(year, month - 1, day);
-  //   return diaSeleccionado;
-  // }
-
-  // const onChangeDate = (value) => {
-  //   //TODO hacer validaciones despues
-  //   // const newDate = formatDate(value);
-  //   dispatch(onChangeCurrentDate(value));
-  // };
-
   const onChangeDate = (newDate) => {
     dispatch(setCurrentDate(newDate));
   };
 
   const startSelectDate = (newDate) => {
+    const fechaOriginal = newDate; // Fecha original
+    const fechaRestada = subDays(fechaOriginal, 1);
     dispatch(onChangeDaySelected(newDate));
-  };
-
-  const startChangeCurrrenteDate = (value) => {
-    console.log("cambio la wea");
-    dispatch(setMesSelecionado(value));
+    dispatch(onDate(fechaRestada));
   };
 
   return {
@@ -43,6 +27,5 @@ export const useDateStore = () => {
     daySelected,
     onChangeDate,
     startSelectDate,
-    startChangeCurrrenteDate,
   };
 };

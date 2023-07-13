@@ -3,7 +3,7 @@
 import { getDate, getMonth, getYear } from "date-fns";
 import { Day } from "./Day";
 
-export const MonthDays = ({ allDays = [], setNext }) => {
+export const MonthDays = ({ allDays = [],  }) => {
   const disabledDates = [
     new Date(2023, 5, 12),
     new Date(2023, 5, 15),
@@ -24,7 +24,7 @@ export const MonthDays = ({ allDays = [], setNext }) => {
             month={month}
             year={year}
             disabledDates={disabledDates}
-            setNext={setNext}
+            
           />
         );
       })}

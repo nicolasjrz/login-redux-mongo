@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { useCalendar } from "../../hooks/useCalendar";
 
-export const Calendar = ({ currentDate = new Date(), onChange, setNext }) => {
+export const Calendar = ({ currentDate = new Date(), onChange }) => {
   const [cantMonth] = useState(1);
 
   const { dayInit, dayRestant, allDays, prevMonth, nextMonth } = useCalendar(
@@ -31,7 +31,7 @@ export const Calendar = ({ currentDate = new Date(), onChange, setNext }) => {
           <WeekdaysBar />
 
           <FillDays amount={dayInit} />
-          <MonthDays allDays={allDays} setNext={setNext} />
+          <MonthDays allDays={allDays} />
           <FillDays amount={dayRestant} />
         </Grid>
       </Grid>

@@ -22,7 +22,6 @@ export const dateSlice = createSlice({
     },
     setMesSelecionado: (state, { payload }) => {
       state.mesSelecionado = payload; // Actualiza mesSelecionado con el valor proporcionado
-      //state.currentDate = state.mesSelecionado; // Actualiza currentDate con mesSelecionado
     },
   },
 });

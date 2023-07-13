@@ -18,9 +18,8 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
 
   const { startSelectDate } = useDateStore();
 
-  const handleClickDate = (fecha) => {
-    console.log({ fecha });
-    startSelectDate(fecha);
+  const handleClickDate = (date) => {
+    startSelectDate(date);
   };
 
   return (
