@@ -9,7 +9,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
   const {
     date,
     isTodayDate,
-    isWeekendDate,
+    isClosedDay,
     isPastDay,
     buttonDisabled,
     isDisabledDate,
@@ -42,7 +42,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
             ? "#7c8cf7"
             : isPastDay
             ? "#e0dcdc"
-            : isWeekendDate
+            : isClosedDay
             ? "#f5b5bc"
             : isDisabledDate
             ? "#b3ffb3"
