@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { onChangeDaySelected, setCurrentDate } from "../store/auth/dateSlice";
 import { onDate } from "../store/auth/turnoSlice";
-import { subDays } from "date-fns";
 
 export const useDateStore = () => {
   const { currentDate, initialDate, daySelected } = useSelector(

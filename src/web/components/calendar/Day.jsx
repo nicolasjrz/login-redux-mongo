@@ -49,8 +49,14 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
             : isDiaSeleccionado
             ? "green"
             : "#b5cef5",
-
           fontWeight: isTodayDate ? "bold" : "normal",
+          // Agregar estilos condicionales al pasar el mouse por encima (hover)
+          ...(buttonDisabled === false && {
+            "&:hover": {
+              backgroundColor: "blue",
+              cursor: "pointer",
+            },
+          }),
         }}
         onClick={() => handleClickDate(date)}
         component={"button"}
