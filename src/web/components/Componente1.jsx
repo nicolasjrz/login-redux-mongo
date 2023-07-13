@@ -1,14 +1,17 @@
 import { StepperLayout } from "../layout/StepperLayout";
 import { useEffect, useState } from "react";
 import { Calendar } from "./Calendar";
+import { useDateStore } from "../../hooks/useDateStore";
 
 // eslint-disable-next-line react/prop-types
 export const Componente1 = ({ fecha, setNext }) => {
   // const dispatch = useDispatch();
-  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const { daySelected, onChangeDate, currentDate } = useDateStore();
+
   useEffect(() => {
-    fecha === "" ? setNext(true) : setNext(false);
-  }, [fecha, setNext]);
+    daySelected === "" ? setNext(true) : setNext(false);
+  }, [daySelected, onChangeDate]);
 
   // const handleFechaChange = (event) => {
   //   const nuevaFecha = event.target.value;
@@ -23,7 +26,7 @@ export const Componente1 = ({ fecha, setNext }) => {
 
       <Calendar
         currentDate={currentDate}
-        onChange={setCurrentDate}
+        onChange={onChangeDate}
         setNext={setNext}
       />
     </StepperLayout>

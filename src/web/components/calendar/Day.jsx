@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 
 import { Grid } from "@mui/material";
-import { useDate } from "../../../hooks/useDate";
-import { useDispatch } from "react-redux";
-import { onDate } from "../../../store/auth/turnoSlice";
 
-export const Day = ({ day, month, year, disabledDates = [], setNext }) => {
+import { useDateStore } from "../../../hooks/useDateStore";
+import { useDate } from "../../../hooks/useDate";
+
+export const Day = ({ day, month, year, disabledDates = [] }) => {
   const {
-    dateFormat,
+    date,
     isTodayDate,
     isWeekendDate,
     isPastDay,
@@ -15,12 +15,12 @@ export const Day = ({ day, month, year, disabledDates = [], setNext }) => {
     isDisabledDate,
     isDiaSeleccionado,
   } = useDate(day, month, year, disabledDates);
-  const dispatch = useDispatch();
-  const handleClickDate = (fecha) => {
-    //console.log({ fecha });
 
-    dispatch(onDate(fecha));
-    setNext(false);
+  const { startSelectDate } = useDateStore();
+
+  const handleClickDate = (fecha) => {
+    console.log({ fecha });
+    startSelectDate(fecha);
   };
 
   return (
@@ -53,7 +53,7 @@ export const Day = ({ day, month, year, disabledDates = [], setNext }) => {
 
           fontWeight: isTodayDate ? "bold" : "normal",
         }}
-        onClick={() => handleClickDate(dateFormat)}
+        onClick={() => handleClickDate(date)}
         component={"button"}
         disabled={buttonDisabled}
       >
