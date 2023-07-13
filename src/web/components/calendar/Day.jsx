@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
-
+import { useState } from "react";
 import { Grid } from "@mui/material";
-
 import { useDateStore } from "../../../hooks/useDateStore";
 import { useDate } from "../../../hooks/calendar/useDate";
 
@@ -18,8 +16,15 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
 
   const { startSelectDate } = useDateStore();
 
+  const [isCurrentDaySelected, setIsCurrentDaySelected] = useState(false);
+
   const handleClickDate = (date) => {
     startSelectDate(date);
+    setIsCurrentDaySelected(true);
+  };
+
+  const resetSelection = () => {
+    setIsCurrentDaySelected(false);
   };
 
   return (
@@ -38,7 +43,9 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
           justifyContent: "center",
           alignItems: "center",
           color: "black",
-          backgroundColor: isTodayDate
+          backgroundColor: isCurrentDaySelected
+            ? "green"
+            : isTodayDate
             ? "#7c8cf7"
             : isPastDay
             ? "#e0dcdc"
@@ -59,6 +66,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
           }),
         }}
         onClick={() => handleClickDate(date)}
+        onBlur={resetSelection}
         component={"button"}
         disabled={buttonDisabled}
       >
