@@ -8,7 +8,7 @@ import {
   setYear,
 } from "date-fns";
 
-import { useTurnoStore } from "./useTurnoStore";
+import { useTurnoStore } from "../useTurnoStore";
 
 function formatDate(fechaString) {
   const [day, month, year] = fechaString.split("/").map(Number);

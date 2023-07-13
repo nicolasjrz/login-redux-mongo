@@ -3,7 +3,7 @@
 import { Grid } from "@mui/material";
 
 import { useDateStore } from "../../../hooks/useDateStore";
-import { useDate } from "../../../hooks/useDate";
+import { useDate } from "../../../hooks/calendar/useDate";
 
 export const Day = ({ day, month, year, disabledDates = [] }) => {
   const {

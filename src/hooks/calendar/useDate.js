@@ -6,7 +6,7 @@ import {
   setMonth,
   setYear,
 } from "date-fns";
-import { useDateStore } from "./useDateStore";
+import { useDateStore } from "../useDateStore";
 
 export const useDate = (day, mes, anio, disabledDates = []) => {
   const { daySelected } = useDateStore();

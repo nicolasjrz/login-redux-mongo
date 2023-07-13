@@ -9,7 +9,7 @@ import { Stack } from "@mui/material";
 import { StepperButtons } from "../components/stepper/StepperButtons";
 import { StepperHeader } from "../components/stepper/StepperHeader";
 import { StepperReset } from "../components/stepper/StepperReset";
-import { useStepper } from "../../hooks/useStepper";
+import { useStepper } from "../../hooks/stepper/useStepper";
 import { Componente1 } from "../components/Componente1";
 import { Componente2 } from "../components/Componente2";
 import { Componente3 } from "../components/Componente3";

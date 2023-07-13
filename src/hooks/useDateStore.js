@@ -15,10 +15,8 @@ export const useDateStore = () => {
   };
 
   const startSelectDate = (newDate) => {
-    const fechaOriginal = newDate; // Fecha original
-    const fechaRestada = subDays(fechaOriginal, 1);
     dispatch(onChangeDaySelected(newDate));
-    dispatch(onDate(fechaRestada));
+    dispatch(onDate(newDate));
   };
 
   return {

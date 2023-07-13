@@ -8,7 +8,7 @@ import {
   WeekdaysBar,
 } from "../components";
 import { useState } from "react";
-import { useCalendar } from "../../hooks/useCalendar";
+import { useCalendar } from "../../hooks/calendar/useCalendar";
 
 export const Calendar = ({ currentDate = new Date(), onChange }) => {
   const [cantMonth] = useState(1);
