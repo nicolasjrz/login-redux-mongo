@@ -15,7 +15,7 @@ export const useDate = (day, mes, anio, disabledDates = []) => {
   const isDisabledDate = disabledDates.some((disabledDate) =>
     isSameDay(date, disabledDate)
   );
-  const isDiaSeleccionado = daySelected ? isSameDay(date, daySelected) : false;
+  const isSelectedDay = daySelected ? isSameDay(date, daySelected) : false;
   const buttonDisabled = isClosedDay || isPastDay || isDisabledDate;
 
   return {
@@ -25,6 +25,6 @@ export const useDate = (day, mes, anio, disabledDates = []) => {
     isPastDay,
     buttonDisabled,
     isDisabledDate,
-    isDiaSeleccionado,
+    isSelectedDay,
   };
 };

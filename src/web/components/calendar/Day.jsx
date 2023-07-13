@@ -11,7 +11,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
     isPastDay,
     buttonDisabled,
     isDisabledDate,
-    isDiaSeleccionado,
+    isSelectedDay ,
   } = useDate(day, month, year, disabledDates);
 
   const { startSelectDate } = useDateStore();
@@ -53,7 +53,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
             ? "#f5b5bc"
             : isDisabledDate
             ? "#b3ffb3"
-            : isDiaSeleccionado
+            : isSelectedDay 
             ? "green"
             : "#b5cef5",
           fontWeight: isTodayDate ? "bold" : "normal",
