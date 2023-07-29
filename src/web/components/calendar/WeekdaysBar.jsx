@@ -15,7 +15,7 @@ export const WeekdaysBar = () => {
           md={1}
           lg={1}
           minHeight={30}
-          bgcolor={"yellow"}
+          bgcolor={"#dbdbdb"}
           pt={0.3}
           sx={{
             border: "1px solid #080808",
@@ -24,7 +24,7 @@ export const WeekdaysBar = () => {
             alignItems: "center",
           }}
         >
-          <Typography>{elem}</Typography>
+          <Typography color={"black"}>{elem}</Typography>
         </Grid>
       ))}
     </>

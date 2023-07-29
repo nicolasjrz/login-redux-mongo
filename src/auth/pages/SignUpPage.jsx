@@ -83,6 +83,8 @@ export const SignUpPage = () => {
               </Typography>
             )}
           </Grid>
+
+          
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
               fullWidth

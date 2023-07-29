@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Grid } from "@mui/material";
 import { useDateStore } from "../../../hooks/useDateStore";
@@ -11,7 +12,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
     isPastDay,
     buttonDisabled,
     isDisabledDate,
-    isSelectedDay ,
+    isSelectedDay,
   } = useDate(day, month, year, disabledDates);
 
   const { startSelectDate } = useDateStore();
@@ -44,23 +45,23 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
           alignItems: "center",
           color: "black",
           backgroundColor: isCurrentDaySelected
-            ? "green"
+            ? "orange" ///COLOR YA SELECCIONADO
             : isTodayDate
-            ? "#7c8cf7"
+            ? "#82addc" ///COLOR DEL DIA DE HOY
             : isPastDay
-            ? "#e0dcdc"
+            ? "#dbdbdb"
             : isClosedDay
-            ? "#f5b5bc"
+            ? "#c00000" /// DIAS QUE NO SE PUEDE SELECCIONAR
             : isDisabledDate
-            ? "#b3ffb3"
-            : isSelectedDay 
-            ? "green"
-            : "#b5cef5",
+            ? "#b3ffb3" /// DIAS DESABILITADOS
+            : isSelectedDay
+            ? "#9fe855" /// DIA CUANDO LO SELECCIONAS
+            : "#ffffff",
           fontWeight: isTodayDate ? "bold" : "normal",
           // Agregar estilos condicionales al pasar el mouse por encima (hover)
           ...(buttonDisabled === false && {
             "&:hover": {
-              backgroundColor: "blue",
+              backgroundColor: "#7fdf1e", // color cuando haces hover
               cursor: "pointer",
             },
           }),
