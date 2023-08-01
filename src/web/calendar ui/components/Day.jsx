@@ -37,11 +37,11 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
           onClick={() => handleClickDate(date)}
           onBlur={resetSelection}
           disabled={buttonDisabled}
-          backgroundColor={
+          bg={
             isCurrentDaySelected
-              ? "yellow" ///COLOR YA SELECCIONADO
+              ? "#a0bfe0" ///COLOR YA SELECCIONADO
               : isTodayDate
-              ? "blue" ///COLOR DEL DIA DE HOY
+              ? "#4A55A2" ///COLOR DEL DIA DE HOY
               : isPastDay
               ? "#dbdbdb"
               : isClosedDay
@@ -49,7 +49,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
               : isDisabledDate
               ? "#ffb3e8" /// DIAS DESABILITADOS
               : isSelectedDay
-              ? "yellow" /// DIA CUANDO LO SELECCIONAS
+              ? "#C5DFF8" /// DIA CUANDO LO SELECCIONAS
               : "#ffffff"
           }
         >
@@ -70,12 +70,12 @@ const ButtonDay = styled.button`
   border-style: none;
   /* Pasamos la prop backgroundColor para aplicar el color adecuado */
   background-color: ${(props) =>
-    props.disabled
-      ? props.backgroundColor || "#f2f2f2"
-      : props.backgroundColor || "#ffffff"};
+    props.disabled ? props.bg || "#f2f2f2" : props.bg || "#ffffff"};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   /* Estilo de hover amarillo solo cuando el botón no está deshabilitado */
   &:not(:disabled):hover {
-    background-color: yellow;
+    background-color: #a0bfe0;
   }
+  /* font-weight: ${(props) => (props.isTodayDate ? "bold" : "normal")}; */
+  font-weight: bold;
 `;

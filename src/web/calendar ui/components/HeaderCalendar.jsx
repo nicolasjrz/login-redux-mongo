@@ -8,7 +8,7 @@ export const HeaderCalendar = ({ currentDate, prevMonth, nextMonth }) => {
     <Grid item sx={{ width: "100%" }}>
       <Grid
         container
-        sx={{ backgroundColor: "blue" }}
+        sx={{ backgroundColor: "#4A55A2" }}
         justifyContent="space-between"
         alignItems="center"
         p={2}
