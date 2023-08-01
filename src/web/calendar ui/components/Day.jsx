@@ -41,7 +41,7 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
             isCurrentDaySelected
               ? "#a0bfe0" ///COLOR YA SELECCIONADO
               : isTodayDate
-              ? "#4A55A2" ///COLOR DEL DIA DE HOY
+              ? "#707acc" ///COLOR DEL DIA DE HOY
               : isPastDay
               ? "#dbdbdb"
               : isClosedDay

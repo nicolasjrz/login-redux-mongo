@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Grid, Typography } from "@mui/material";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { format } from "date-fns";
+import { ButtonHeader } from "./ButtonHeader";
 export const HeaderCalendar = ({ currentDate, prevMonth, nextMonth }) => {
   return (
     <Grid item sx={{ width: "100%" }}>
@@ -21,51 +20,8 @@ export const HeaderCalendar = ({ currentDate, prevMonth, nextMonth }) => {
         </Grid>
         <Grid item>
           <Grid container direction="row" alignItems="center">
-            <Grid item padding={1}>
-              <Typography
-                component="button"
-                onClick={prevMonth}
-                sx={{
-                  borderRadius: "50%",
-                  padding: "8px",
-                  border: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "transparent",
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: "#f0f0f0", // Cambia el color gris claro aquí
-                  },
-                }}
-              >
-                <KeyboardArrowLeftIcon />
-              </Typography>
-            </Grid>
-
-            <Grid item padding={1}>
-              <Typography
-                onClick={nextMonth}
-                component="button"
-                sx={{
-                  borderRadius: "50%",
-                  padding: "8px",
-                  border: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "transparent",
-                  cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: "#f0f0f0", // Cambia el color gris claro aquí
-                  },
-                }}
-              >
-                <KeyboardArrowRightIcon />
-              </Typography>
-            </Grid>
+            <ButtonHeader fn={prevMonth} />
+            <ButtonHeader fn={nextMonth} direction="next" />
           </Grid>
         </Grid>
       </Grid>

@@ -21,6 +21,7 @@ export const Calendar = ({ currentDate = new Date(), onChange }) => {
     <>
       <Grid
         container
+        p={1}
         sx={{ bgcolor: "#f2f2f2", width: 450 }}
         columns={7}
         borderRadius={2}
