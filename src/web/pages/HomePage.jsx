@@ -13,6 +13,7 @@ import { useStepper } from "../../hooks/stepper/useStepper";
 import { Componente1 } from "../components/Componente1";
 import { Componente2 } from "../components/Componente2";
 import { Componente3 } from "../components/Componente3";
+import { Calendar } from "../calendar ui/Calendar";
 
 export const HomePage = () => {
   const { fecha, turno, servicio } = useTurnoStore();
@@ -43,7 +44,7 @@ export const HomePage = () => {
       justifyContent="center"
       sx={{ minHeight: "100vh", backgroundColor: "#c7d7f2", padding: 4 }}
     >
-      <Box sx={{ width: "100%" }}>
+      {/* <Box sx={{ width: "100%" }}>
         <Stepper activeStep={activeStep}>
           {steps.map((step, index) => (
             <Step key={index}>
@@ -67,7 +68,9 @@ export const HomePage = () => {
             />
           </>
         )}
-      </Box>
+      </Box> */}
+
+      <Calendar />
     </Stack>
   );
 };

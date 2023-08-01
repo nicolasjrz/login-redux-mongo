@@ -17,6 +17,7 @@ export const WeekdaysBar = () => {
           minHeight={30}
           bgcolor={"#dbdbdb"}
           pt={0.3}
+          width={150}
           sx={{
             border: "1px solid #080808",
             display: "flex",

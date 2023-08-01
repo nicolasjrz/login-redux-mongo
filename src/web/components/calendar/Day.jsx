@@ -36,10 +36,15 @@ export const Day = ({ day, month, year, disabledDates = [] }) => {
         sm={1}
         md={1}
         lg={1}
-        minHeight={50}
-        height={50}
+        // minHeight={50}
+
         sx={{
           border: "1px solid #080808",
+          mt: 0.6,
+          mb: 0.6,
+          width: "30px", // Tamaño de la cuadrícula para que los días sean redondos
+          height: "30px",
+          //    borderRadius: "200%", // Hace que el diseño sea redondo//
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
