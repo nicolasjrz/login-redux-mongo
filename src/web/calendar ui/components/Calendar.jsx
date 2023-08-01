@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Grid } from "@mui/material";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Weekdays } from "./Weekdays";
 import { MonthDays } from "./MonthDays";
 
@@ -18,16 +18,25 @@ export const Calendar = ({ currentDate = new Date(), onChange }) => {
   );
 
   return (
-    <Fragment>
-      <HeaderCalendar
-        currentDate={currentDate}
-        prevMonth={prevMonth}
-        nextMonth={nextMonth}
-      />
-      <Grid container p={2} sx={{ bgcolor: "#f2f2f2", width: 450 }}>
+    <>
+      <Grid
+        container
+        sx={{ bgcolor: "#f2f2f2", width: 450 }}
+        columns={7}
+        borderRadius={2}
+      >
+        <HeaderCalendar
+          currentDate={currentDate}
+          prevMonth={prevMonth}
+          nextMonth={nextMonth}
+        />
         <Weekdays />
-        <MonthDays />
+        <MonthDays
+          dayInit={dayInit}
+          allDays={allDays}
+          dayRestant={dayRestant}
+        />
       </Grid>
-    </Fragment>
+    </>
   );
 };

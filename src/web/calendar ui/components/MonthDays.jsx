@@ -1,28 +1,25 @@
+/* eslint-disable react/prop-types */
 import { Grid } from "@mui/material";
-
 import { FillDays } from "./FillDays";
-import { Day } from "./Day";
+import { AllDays } from "./AllDays";
 
-const days = Array.from({ length: 31 }, (_, index) => index + 1);
-
-export const MonthDays = () => {
+export const MonthDays = ({ allDays = [], dayInit, dayRestant }) => {
   return (
     <>
-      <Grid container sx={{ display: "flex" }}>
-        <FillDays amount={2} />
+      <Grid
+        item
+        // border={"1px solid black"}
+        // bgcolor={"violet"}
+        sx={{ display: "flex" }}
+        mb={1}
+      >
+        <Grid container justifyContent={"space-around"}>
+          <FillDays amount={dayInit} />
 
-        {days.map((day, index) => (
-          <Grid
-            item
-            key={index}
-            sx={{ width: "calc(100% / 7)" }}
-            textAlign={"center"}
-          >
-            <Day day={day} />
-          </Grid>
-        ))}
+          <AllDays allDays={allDays} />
 
-        <FillDays amount={2} />
+          <FillDays amount={dayRestant} />
+        </Grid>
       </Grid>
     </>
   );

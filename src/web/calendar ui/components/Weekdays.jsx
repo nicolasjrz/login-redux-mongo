@@ -5,17 +5,29 @@ export const Weekdays = () => {
   const days = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
 
   return (
-    <Grid container sx={{ display: "flex" }}>
-      {days.map((day, index) => (
+    <>
+      {days.map((dayName, index) => (
         <Grid
           item
+          mb={1}
+          xs={1}
+          sm={1}
+          md={1}
+          lg={1}
           key={index}
-          sx={{ textAlign: "center" }}
-          className={"seven-space"}
+          // border={"1px solid black"}
+          // bgcolor={"red"}
+          mt={1}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          // className={"seven-space"}
         >
-          <Typography className="weeks-text">{day}</Typography>
+          <Typography className="weeks-text">{dayName}</Typography>
         </Grid>
       ))}
-    </Grid>
+    </>
   );
 };
