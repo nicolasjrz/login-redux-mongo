@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { Grid, Typography } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-export const HeaderCalendar = () => {
+import { format } from "date-fns";
+export const HeaderCalendar = ({ currentDate, prevMonth, nextMonth }) => {
   return (
     <Grid
       container
@@ -12,13 +14,14 @@ export const HeaderCalendar = () => {
       p={2}
     >
       <Grid item>
-        <Typography variant="h5">Julio 2023</Typography>
+        <Typography variant="h5">{format(currentDate, "LLLL yyyy")}</Typography>
       </Grid>
       <Grid item>
         <Grid container direction="row" alignItems="center">
           <Grid item padding={1}>
             <Typography
               component="button"
+              onClick={prevMonth}
               sx={{
                 borderRadius: "50%",
                 padding: "8px",
@@ -40,6 +43,7 @@ export const HeaderCalendar = () => {
 
           <Grid item padding={1}>
             <Typography
+              onClick={nextMonth}
               component="button"
               sx={{
                 borderRadius: "50%",

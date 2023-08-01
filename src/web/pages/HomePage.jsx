@@ -13,13 +13,14 @@ import { useStepper } from "../../hooks/stepper/useStepper";
 import { Componente1 } from "../components/Componente1";
 import { Componente2 } from "../components/Componente2";
 import { Componente3 } from "../components/Componente3";
-import { Calendar } from "../calendar ui/Calendar";
+import { Calendar } from "../calendar ui/components/Calendar";
+import { useDateStore } from "../../hooks/useDateStore";
 
 export const HomePage = () => {
   const { fecha, turno, servicio } = useTurnoStore();
   const { next, setNext, activeStep, handleNext, handleBack, handleReset } =
     useStepper();
-
+  const { daySelected, onChangeDate, currentDate } = useDateStore();
   const steps = [
     {
       label: "Paso 1",
@@ -70,7 +71,7 @@ export const HomePage = () => {
         )}
       </Box> */}
 
-      <Calendar />
+      <Calendar currentDate={currentDate} onChange={onChangeDate} />
     </Stack>
   );
 };
