@@ -20,18 +20,32 @@
 
 .days{
     border-radius: 150%;
-    z-index: 1;
-    cursor: pointer;
-    position: relative;
+    /* z-index: 1; */
+    /* cursor: pointer;
+    position: relative; */
     width: 25px;
     height: 25px;
-    background-color: #f2f2f2;
+    background-color:red;
     /* border: 1px solid transparent; */
+    
 
 }
 
 
-  .dias:hover {
+.days-button{
+
+  /* background-color: red; */
+  
+  /* border-radius: 150%; */
+  /* width: 40px;
+  height: 40px; */
+ 
+  
+
+ 
+}
+
+  .days:hover {
     background-color: rgb(43, 250, 15);
   }
 

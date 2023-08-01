@@ -9,7 +9,6 @@ export const MonthDays = ({ allDays = [], dayInit, dayRestant }) => {
       <Grid
         item
         // border={"1px solid black"}
-        // bgcolor={"violet"}
         sx={{ display: "flex" }}
         mb={1}
       >
