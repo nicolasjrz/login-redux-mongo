@@ -3,6 +3,7 @@ import { useAuthStore } from "../hooks/useAuthStore";
 import { useEffect } from "react";
 import { LoginPage } from "../auth/pages/LoginPage";
 import { HomePage } from "../web/pages/HomePage";
+import { CalendarPage } from "../web/pages/CalendarPage";
 
 export const AppRouter = () => {
   const { status, checkAuthToken } = useAuthStore();
@@ -24,7 +25,7 @@ export const AppRouter = () => {
         </>
       ) : (
         <>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<CalendarPage />} />
           <Route path="/*" element={<Navigate to="/" />} />
         </>
       )}

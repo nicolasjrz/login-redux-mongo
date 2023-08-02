@@ -8,11 +8,18 @@ export const MonthDays = ({ allDays = [], dayInit, dayRestant }) => {
     <>
       <Grid
         item
-        // border={"1px solid black"}
-        sx={{ display: "flex" }}
-        mb={1}
+        // border={"1px solid blue"}
+        // sx={{ display: "flex" }}
+        // mb={2}
+        // className="seven-space"
       >
-        <Grid container justifyContent={"space-around"}>
+        <Grid
+          container
+          justifyContent={"space-between"}
+          //
+          columnGap={0.5}
+          columns={7}
+        >
           <FillDays amount={dayInit} />
 
           <AllDays allDays={allDays} />

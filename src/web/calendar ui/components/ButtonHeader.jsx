@@ -20,10 +20,10 @@ export const ButtonHeader = ({ fn, direction }) => {
           background: "transparent",
           cursor: "pointer",
           "&:hover": {
-            backgroundColor: "#f0f0f0", // Cambia el color gris claro aquí
-            color: "black",
+            backgroundColor: "rgba(187, 184, 184, 0.329)", // Cambia el color gris claro aquí
+            color: "#242323",
           },
-          color: "#f2f2f2",
+          color: "#242323",
         }}
       >
         {direction === "next" ? (

@@ -7,20 +7,24 @@ export const HeaderCalendar = ({ currentDate, prevMonth, nextMonth }) => {
     <Grid item sx={{ width: "100%" }}>
       <Grid
         container
-        sx={{ backgroundColor: "#4A55A2" }}
-        justifyContent="space-between"
+        // sx={{ backgroundColor: "#4A55A2" }}
+        justifyContent="space-around"
         alignItems="center"
-        p={2}
-        borderRadius={2}
+        // p={2}
+        // borderRadius={2}
       >
-        <Grid item>
-          <Typography variant="h5">
+        <Grid item xs={2}>
+          <Grid container>
+            <ButtonHeader fn={prevMonth} />
+          </Grid>
+        </Grid>
+        <Grid item xs={8} textAlign={"center"}>
+          <Typography variant="h6" color={"#585757"}>
             {format(currentDate, "LLLL yyyy")}
           </Typography>
         </Grid>
-        <Grid item>
-          <Grid container direction="row" alignItems="center">
-            <ButtonHeader fn={prevMonth} />
+        <Grid item xs={2}>
+          <Grid container>
             <ButtonHeader fn={nextMonth} direction="next" />
           </Grid>
         </Grid>
