@@ -13,6 +13,9 @@ import { useStepper } from "../../hooks/stepper/useStepper";
 import { Componente1 } from "../components/Componente1";
 import { Componente2 } from "../components/Componente2";
 import { Componente3 } from "../components/Componente3";
+import { styled } from "styled-components";
+
+import "./../../index.css";
 
 export const HomePage = () => {
   const { fecha, turno, servicio } = useTurnoStore();
@@ -56,8 +59,17 @@ export const HomePage = () => {
             <StepperReset handleReset={handleReset} />
           </React.Fragment>
         ) : (
-          <>
-            <StepperHeader content={steps[activeStep].content} />
+          <Box p={1} border={"3px solid black"}>
+            <StyledStepperHeader2
+              sx={{
+                /* Agrega aquí los estilos que desees aplicar al StepperHeader */
+                /* Por ejemplo: */
+                backgroundColor: "blue",
+                color: "white",
+                fontSize: "20px",
+              }}
+              content={steps[activeStep].content}
+            />
             <StepperButtons
               steps={steps}
               activeStep={activeStep}
@@ -65,9 +77,17 @@ export const HomePage = () => {
               handleNext={handleNext}
               next={next}
             />
-          </>
+          </Box>
         )}
       </Box>
     </Stack>
   );
 };
+
+const StyledStepperHeader2 = styled(StepperHeader)`
+  /* Agrega aquí los estilos que desees aplicar al StepperHeader */
+  /* Por ejemplo: */
+  background-color: red;
+  color: white;
+  font-size: 20px;
+`;

@@ -25,7 +25,7 @@ export const AppRouter = () => {
         </>
       ) : (
         <>
-          <Route path="/" element={<CalendarPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/*" element={<Navigate to="/" />} />
         </>
       )}

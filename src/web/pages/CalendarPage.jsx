@@ -3,6 +3,7 @@ import { useDateStore } from "../../hooks/useDateStore";
 import { Stack } from "@mui/material";
 
 export const CalendarPage = () => {
+  // eslint-disable-next-line no-unused-vars
   const { daySelected, onChangeDate, currentDate } = useDateStore();
   return (
     <Stack

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import styled from "@emotion/styled";
-import { Grid } from "@mui/material";
+
+import { Grid, Typography } from "@mui/material";
 
 export const Weekdays = () => {
   const days = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
@@ -23,15 +23,18 @@ export const Weekdays = () => {
             alignItems: "center",
           }}
         >
-          <DayName>{dayName}</DayName>
+          <Typography
+            sx={{
+              color: "black",
+              // fontSize: "20px",
+              padding: "5px 8px 8px 5px",
+              fontWeight: 100,
+            }}
+          >
+            {dayName}
+          </Typography>
         </Grid>
       ))}
     </>
   );
 };
-const DayName = styled.text`
-  color: black;
-  font-size: 20px;
-  font-weight: 100;
-  padding: 5px 8px 8px 5px;
-`;

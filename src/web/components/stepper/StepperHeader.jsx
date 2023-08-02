@@ -2,5 +2,5 @@
 import { Box } from "@mui/material";
 
 export const StepperHeader = ({ content }) => {
-  return <Box sx={{ padding: "16px" }}>{content}</Box>;
+  return <Box sx={{ backgroundColor: "blue", padding: 1 }}>{content}</Box>;
 };

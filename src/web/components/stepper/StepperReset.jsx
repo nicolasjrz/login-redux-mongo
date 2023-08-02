@@ -9,7 +9,13 @@ export const StepperReset = ({ handleReset }) => {
         All steps completed - you&apos;re finished
       </Typography> */}
       <Componente4 text={" All steps completed -  finished"} />
-      <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          pt: 2,
+        }}
+      >
         <Box sx={{ flex: "1 1 auto" }} />
         <Button onClick={handleReset}>Reset</Button>
       </Box>

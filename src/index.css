@@ -19,3 +19,8 @@
   margin: 0;
 }
 
+
+.MuiGrid-root .MuiGrid-container .MuiGrid-direction-xs-column .css-1houbpq-MuiGrid-root{
+  background-color: "red";
+  width: 1100px;
+}
